@@ -1,0 +1,16 @@
+basePackage: org.lamisplus.modules.ml
+name: MachineLearningModule
+dependencies: { }
+store: true
+menus:
+  - icon:
+    disabled: false
+    name: MachineLearning
+    state: MachineLearning
+    url: /across/resources/static/ml/index.html
+umdLocation: /across/resources/static/ml/index.html
+webModules:
+  - breadcrumb: MachineLearning
+    name: MachineLearningModule
+    path: MachineLearning
+    position: 100
