@@ -28,6 +28,7 @@
 
 	<properties>
 		<build.revision>development</build.revision>
+		<jpmml.version>1.5.16</jpmml.version>
 	</properties>
 
 	<dependencyManagement>
@@ -253,6 +254,18 @@
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20220320</version>
+		</dependency>
+<!--Adding dependencies for PMML-->
+		<dependency>
+			<groupId>org.jpmml</groupId>
+			<artifactId>pmml-evaluator</artifactId>
+			<version>${jpmml.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jpmml</groupId>
+			<artifactId>pmml-evaluator-extension</artifactId>
+			<version>${jpmml.version}</version>
 		</dependency>
 	</dependencies>
 
