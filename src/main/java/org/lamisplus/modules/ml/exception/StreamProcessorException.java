@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.kenyaemrml.exception;
+package org.lamisplus.modules.ml.exception;
 
 import java.util.ArrayList;
 import java.util.List;

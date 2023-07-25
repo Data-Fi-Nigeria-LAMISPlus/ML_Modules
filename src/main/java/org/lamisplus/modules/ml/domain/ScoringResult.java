@@ -1,4 +1,4 @@
-package org.openmrs.module.kenyaemrml.domain;
+package org.lamisplus.modules.ml.domain;
 
 import java.util.Map;
 
