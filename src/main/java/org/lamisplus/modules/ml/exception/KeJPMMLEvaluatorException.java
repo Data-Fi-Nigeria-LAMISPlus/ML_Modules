@@ -1,4 +1,4 @@
-package org.openmrs.module.kenyaemrml.exception;
+package org.lamisplus.modules.ml.exception;
 
 /**
  * Adopted from lightning scorer

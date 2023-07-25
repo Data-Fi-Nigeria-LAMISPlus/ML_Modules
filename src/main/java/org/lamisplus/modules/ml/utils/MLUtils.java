@@ -1,4 +1,4 @@
-package org.lamisplus.modules.ml.domain;
+package org.lamisplus.modules.ml.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.codehaus.jackson.JsonNode;

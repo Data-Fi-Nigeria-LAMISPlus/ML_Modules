@@ -1,4 +1,4 @@
-package org.openmrs.module.kenyaemrml.api.service;
+package org.lamisplus.modules.ml.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -9,9 +9,9 @@ import org.jpmml.evaluator.FieldValue;
 import org.jpmml.evaluator.InputField;
 import org.jpmml.evaluator.LoadingModelEvaluatorBuilder;
 import org.jpmml.evaluator.OutputField;
-import org.openmrs.module.kenyaemrml.domain.ModelInputFields;
-import org.openmrs.module.kenyaemrml.domain.ScoringResult;
-import org.openmrs.module.kenyaemrml.exception.ScoringException;
+import org.lamisplus.modules.ml.domain.ModelInputFields;
+import org.lamisplus.modules.ml.domain.ScoringResult;
+import org.lamisplus.modules.ml.exception.ScoringException;
 
 import java.io.InputStream;
 import java.util.HashMap;
