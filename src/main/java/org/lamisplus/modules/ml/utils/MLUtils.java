@@ -35,10 +35,14 @@ public class MLUtils {
 	public static String MODEL_PARAMETER_VALUE_OBJECT_KEY = "variableValues";
 	
 	public static String MODEL_CONFIG_OBJECT_KEY = "modelConfigs";
-	
-	public static String[] FACILITY_PROFILE_VARIABLES = { "births", "pregnancies", "literacy", "poverty", "anc", "pnc",
-	        "sba", "hiv_prev", "hiv_count", "condom", "intercourse", "in_union", "circumcision", "partner_away",
-	        "partner_men", "partner_women", "sti", "pop_density", "women_reproductive_age", "young_adults" };
+
+	public static String[] FACILITY_PROFILE_VARIABLES = { "IHME_CONDOM_LAST_TIME_PREV_MEAN_2017","IHME_HAD_INTERCOURSE_PREV_MEAN_2017","IHME_HIV_COUNT_MEAN_2017",
+			"IHME_IN_UNION_PREV_MEAN_2017", "IHME_MALE_CIRCUMCISION_PREV_MEAN_2017", "IHME_PARTNER_AWAY_PREV_MEAN_2017", "IHME_PARTNERS_YEAR_MN_PREV_MEAN_2017",
+			"IHME_PARTNERS_YEAR_WN_PREV_MEAN_2017", "IHME_STI_SYMPTOMS_PREV_MEAN_2017", "nga_f_15_2020",
+			"nga_f_20_2020", "nga_f_25_2020", "nga_f_30_2020", "nga_f_35_2020", "nga_f_40_2020",
+			"nga_f_45_2020", "nga_m_15_2020", "nga_m_20_2020", "nga_m_25_2020", "nga_m_30_2020",
+			"nga_m_35_2020", "nga_m_40_2020", "nga_m_45_2020", "nga_ppp_2020_UNadj", "wp_liveBirths",
+			"wp_poverty", "wp_lit_men", "wp_lit_women", "wp_stunting_men", "wp_stunting_women", "road_density_km" };
 	
 	public static String fetchRequestBody(BufferedReader reader) {
 		String requestBodyJsonStr = "";
@@ -108,7 +112,7 @@ public class MLUtils {
 		prepareEncounterModelParams(encounterDateString, modelParams);
 		// add facility cut off
 		
-		JSONObject profile = getHTSFacilityProfile("SiteCode", facilityMflCode, getFacilityCutOffs());
+		JSONObject profile = getHTSFacilityProfile("Facility.Datim.ID", facilityMflCode, getFacilityCutOffs());
 		
 		for (int i = 0; i < FACILITY_PROFILE_VARIABLES.length; i++) {
 			modelParams.put(FACILITY_PROFILE_VARIABLES[i], profile.get(FACILITY_PROFILE_VARIABLES[i]));
@@ -219,7 +223,7 @@ public class MLUtils {
 	 * @return
 	 */
 	public static String readBundledHtsCasefindingFacilityProfileFile() {
-		InputStream stream = MLUtils.class.getClassLoader().getResourceAsStream("hts_ml_facility_cut_off_national.json");
+		InputStream stream = MLUtils.class.getClassLoader().getResourceAsStream("hts_facility_cut_off.json");
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			ArrayNode result = mapper.readValue(stream, ArrayNode.class);
@@ -281,7 +285,7 @@ public class MLUtils {
 	}*/
 
 	public static String getDefaultMflCode() {
-		return "AFtz58N0L6c";
+		return "LBgwDTw2C8u";
 	}
 	
 }

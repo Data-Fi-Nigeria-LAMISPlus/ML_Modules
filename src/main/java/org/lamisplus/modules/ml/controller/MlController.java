@@ -40,7 +40,9 @@ public class MlController {
         ModelService modelService = new ModelService();
         String requestBody = null;
         try {
+            System.out.println("incoming" + request.getReader());
             requestBody = MLUtils.fetchRequestBody(request.getReader());
+            System.out.println("body " + request.getReader());
             ObjectNode modelConfigs = MLUtils.getModelConfig(requestBody);
             String facilityMflCode = modelConfigs.get(MLUtils.FACILITY_ID_REQUEST_VARIABLE).asText();
             boolean isDebugMode = modelConfigs.has("debug") && modelConfigs.get("debug").asText().equals("true") ? true
