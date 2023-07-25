@@ -3,9 +3,20 @@ package org.lamisplus.modules.ml.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
+import org.codehaus.jackson.node.ObjectNode;
+import org.json.simple.JSONObject;
+import org.lamisplus.modules.ml.domain.ModelInputFields;
+import org.lamisplus.modules.ml.domain.ScoringResult;
+import org.lamisplus.modules.ml.service.ModelService;
+import org.lamisplus.modules.ml.utils.MLUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 @RequestMapping("api/v1/machine-learning")
 @RestController

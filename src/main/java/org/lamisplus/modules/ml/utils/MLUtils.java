@@ -9,7 +9,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.openmrs.module.kenyaemrml.domain.ModelInputFields;
+import org.lamisplus.modules.ml.domain.ModelInputFields;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -77,7 +78,7 @@ public class MLUtils {
 	 *         "ClientSelfTestedYes": 0 } }
 	 */
 	public static ModelInputFields extractHTSCaseFindingVariablesFromRequestBody(String requestBodyString,
-	        String facilityMflCode, String encounterDateString) {
+																				 String facilityMflCode, String encounterDateString) {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		ObjectNode tree = null;
@@ -277,11 +278,10 @@ public class MLUtils {
 /*	public static Location getDefaultLocation() {
 		KenyaEmrService emrService = Context.getService(KenyaEmrService.class);
 		return emrService.getDefaultLocation();
-	}
+	}*/
 
 	public static String getDefaultMflCode() {
-		KenyaEmrService emrService = Context.getService(KenyaEmrService.class);
-		return emrService.getDefaultLocationMflCode();
-	}*/
+		return "AFtz58N0L6c";
+	}
 	
 }
