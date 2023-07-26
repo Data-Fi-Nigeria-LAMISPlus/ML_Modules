@@ -5,12 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
 
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @Builder
-public class ModelConfigs  implements Serializable {
+public class ModelConfigs{
     @NonNull
     private final String facilityId;
     private final String debug;

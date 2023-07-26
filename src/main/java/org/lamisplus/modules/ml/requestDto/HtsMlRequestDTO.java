@@ -5,11 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NonNull;
 
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
-public class HtsMlRequestDTO implements Serializable {
+public class HtsMlRequestDTO {
     @NonNull
     private ModelConfigs modelConfigs;
     @NonNull

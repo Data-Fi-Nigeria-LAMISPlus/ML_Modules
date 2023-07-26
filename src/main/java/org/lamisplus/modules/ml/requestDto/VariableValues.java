@@ -5,13 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.io.Serializable;
-
 
 @Data
 @AllArgsConstructor
 @Builder
-public class VariableValues implements Serializable {
+public class VariableValues {
     @JsonProperty("age")
     private final int age;
     @JsonProperty("sex_M")

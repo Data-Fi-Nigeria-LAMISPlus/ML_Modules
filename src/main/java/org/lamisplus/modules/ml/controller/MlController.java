@@ -1,15 +1,15 @@
 package org.lamisplus.modules.ml.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.json.simple.JSONObject;
-import org.lamisplus.modules.ml.requestDto.HtsMlRequestDTO;
-import org.lamisplus.modules.ml.requestDto.ModelConfigs;
 import org.lamisplus.modules.ml.domain.ModelInputFields;
 import org.lamisplus.modules.ml.domain.ScoringResult;
+import org.lamisplus.modules.ml.requestDto.HtsMlRequestDTO;
+import org.lamisplus.modules.ml.requestDto.ModelConfigs;
 import org.lamisplus.modules.ml.service.ModelService;
 import org.lamisplus.modules.ml.utils.MLUtils;
 import org.springframework.http.HttpHeaders;
