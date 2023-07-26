@@ -40,10 +40,39 @@ public class MlController {
         ModelService modelService = new ModelService();
         String requestBody = null;
         try {
-            System.out.println("incoming" + request.getReader());
+
             requestBody = MLUtils.fetchRequestBody(request.getReader());
             System.out.println("body " + request.getReader());
+
+
+            requestBody = "{ \"modelConfigs\": {\n" +
+                    "\t        \"modelId\":\"hts_v1\", \"encounterDate\":\"2021-06-05\",\n" +
+                    "\t        \"facilityId\":\"LBgwDTw2C8u\", \"debug\":\"true\" }, \"variableValues\": {\n" +
+                    "\t        \"age\" : 34,\n" +
+                    "\t\t\"sex_M\" : 0,\n" +
+                    "\t\t\"sex_F\" : 1,\n" +
+                    "\t\t\"first_time_visit_Y\" : 1,\n" +
+                    "\t\t\"referred_from_Self\" : 1,\n" +
+                    "\t\t\"referred_from_Other\" : 0,\n" +
+                    "\t\t\"marital_status_Married\" : 1,\n" +
+                    "\t\t\"marital_status_Divorced\" : 0,\n" +
+                    "\t\t\"marital_status_Widowed\" : 0,\n" +
+                    "\t\t\"session_type_Individual\" : 1,\n" +
+                    "\t\t\"previously_tested_hiv_negative_Missing\" : 0,\n" +
+                    "\t\t\"previously_tested_hiv_negative_TRUE.\" : 0,\n" +
+                    "\t\t\"client_pregnant_X0\" : 0,\n" +
+                    "\t\t\"hts_setting_Others\" : 0,\n" +
+                    "\t\t\"hts_setting_Outreach\" : 1,\n" +
+                    "\t\t\"hts_setting_Other\" : 0,\n" +
+                    "\t\t\"tested_for_hiv_before_within_this_year_NotPreviouslyTested\" : 1,\n" +
+                    "\t\t\"tested_for_hiv_before_within_this_year_PreviouslyTestedNegative\" : 0,\n" +
+                    "\t\t\"tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveInHIVCare\" : 0,\n" +
+                    "\t\t\"tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveNotInHIVCare\" : 0 } }";
+
             ObjectNode modelConfigs = MLUtils.getModelConfig(requestBody);
+
+            System.out.println("incoming  " + modelConfigs);
+
             String facilityMflCode = modelConfigs.get(MLUtils.FACILITY_ID_REQUEST_VARIABLE).asText();
             boolean isDebugMode = modelConfigs.has("debug") && modelConfigs.get("debug").asText().equals("true") ? true
                     : false;
@@ -59,7 +88,9 @@ public class MlController {
                 return new ResponseEntity<Object>("The service requires model, date, and facility information",
                         new HttpHeaders(), HttpStatus.BAD_REQUEST);
             }
-            JSONObject profile = MLUtils.getHTSFacilityProfile("SiteCode", facilityMflCode, MLUtils.getFacilityCutOffs());
+            JSONObject profile = MLUtils.getHTSFacilityProfile("Facility.Datim.ID", facilityMflCode, MLUtils.getFacilityCutOffs());
+
+            System.out.println("incoming  " + profile);
 
             if (profile == null) {
                 return new ResponseEntity<Object>(
