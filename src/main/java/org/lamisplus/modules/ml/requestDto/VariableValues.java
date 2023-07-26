@@ -41,15 +41,12 @@ public class VariableValues implements Serializable {
     @JsonProperty("hts_setting_Others")
     private final int htsSettingOthers;
     @JsonProperty("hts_setting_Outreach")
-
     private final int htsSettingOutreach;
     @JsonProperty("hts_setting_Other")
-
     private final  int htsSettingOther;
     @JsonProperty("tested_for_hiv_before_within_this_year_NotPreviouslyTested")
     private final int testedForHivBeforeWithinThisYearNotPreviouslyTested;
     @JsonProperty("tested_for_hiv_before_within_this_year_PreviouslyTestedNegative")
-
     private final int testedForHivBeforeWithinThisYearPreviouslyTestedNegative;
     @JsonProperty("tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveInHIVCare")
     private final int testedForHivBeforeWithinThisYearPreviouslyTestedPositiveInHIVCare;

@@ -50,8 +50,9 @@ public class MlController {
             String debug = modelConfigs1.getDebug();
             boolean isDebugMode = debug.equals("true");
             String requestBody =  mapper.writeValueAsString(mlRequestDTO);
-            LOG.info("request DTO {}", requestBody);
-            if (facilityMflCode.equals("")) { // TODO: this should reflect how facilities are identified in LAMISPlus
+            LOG.info("HTS Ml Request data {}", requestBody);
+            if (facilityMflCode != null && StringUtils.isBlank(facilityMflCode)) {
+                // TODO: this should reflect how facilities are identified in LAMISPlus
                 facilityMflCode = MLUtils.getDefaultMflCode();
             }
             String modelId = modelConfigs1.getModelId();
@@ -61,7 +62,7 @@ public class MlController {
                 return new ResponseEntity<Object>("The service requires model, date, and facility information",
                         new HttpHeaders(), HttpStatus.BAD_REQUEST);
             }
-            JSONObject profile = MLUtils.getHTSFacilityProfile("SiteCode", facilityMflCode, MLUtils.getFacilityCutOffs());
+            JSONObject profile = MLUtils.getHTSFacilityProfile("Facility.Datim.ID", facilityMflCode, MLUtils.getFacilityCutOffs());
 
             if (profile == null) {
                 return new ResponseEntity<Object>(
