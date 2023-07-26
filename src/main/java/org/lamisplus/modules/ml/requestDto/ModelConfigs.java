@@ -1,4 +1,4 @@
-package org.lamisplus.modules.ml.controller.requestDto;
+package org.lamisplus.modules.ml.requestDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

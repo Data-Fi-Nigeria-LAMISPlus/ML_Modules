@@ -4,9 +4,10 @@ package org.lamisplus.modules.ml.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.simple.JSONObject;
-import org.lamisplus.modules.ml.controller.requestDto.MlRequestDTO;
-import org.lamisplus.modules.ml.controller.requestDto.ModelConfigs;
+import org.lamisplus.modules.ml.requestDto.HtsMlRequestDTO;
+import org.lamisplus.modules.ml.requestDto.ModelConfigs;
 import org.lamisplus.modules.ml.domain.ModelInputFields;
 import org.lamisplus.modules.ml.domain.ScoringResult;
 import org.lamisplus.modules.ml.service.ModelService;
@@ -36,9 +37,9 @@ public class MlController {
      */
     @RequestMapping(method = RequestMethod.POST, value = "/evaluate")
     @ResponseBody
-    public Object processModel(@Valid  @RequestBody  MlRequestDTO mlRequestDTO) {
+    public Object processModel(@Valid  @RequestBody HtsMlRequestDTO mlRequestDTO) {
         ModelService modelService = new ModelService();
-        String requestBody = null;
+        ObjectMapper mapper = new ObjectMapper();
         try {
             ModelConfigs modelConfigs1 = mlRequestDTO.getModelConfigs();
 //            System.out.println("incoming" + request.getReader());
@@ -48,7 +49,8 @@ public class MlController {
             String facilityMflCode = modelConfigs1.getFacilityId();
             String debug = modelConfigs1.getDebug();
             boolean isDebugMode = debug.equals("true");
-
+            String requestBody =  mapper.writeValueAsString(mlRequestDTO);
+            LOG.info("request DTO {}", requestBody);
             if (facilityMflCode.equals("")) { // TODO: this should reflect how facilities are identified in LAMISPlus
                 facilityMflCode = MLUtils.getDefaultMflCode();
             }
@@ -73,6 +75,7 @@ public class MlController {
             return scoringResult;
         }
         catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<Object>("Could not process the request", new HttpHeaders(),
                     HttpStatus.UNPROCESSABLE_ENTITY);
         }

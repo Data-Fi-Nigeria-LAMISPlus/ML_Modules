@@ -1,49 +1,30 @@
 {
   "modelConfigs": {
-
-  "modelId":"hts_v1", "encounterDate":"2021-06-05",
-
-  "facilityId":"LBgwDTw2C8u", "debug":"false" },
-
+    "modelId": "hts_v1",
+    "encounterDate": "2021-06-05",
+    "facilityId": "LBgwDTw2C8u",
+    "debug": "false"
+  },
   "variableValues": {
-
-  "age" : 34,
-
-  "sex_M" : 0,
-
-  "sex_F" : 1,
-
-  "first_time_visit_Y" : 1,
-
-  "referred_from_Self" : 1,
-
-  "referred_from_Other" : 0,
-
-  "marital_status_Married" : 1,
-
-  "marital_status_Divorced" : 0,
-
-  "marital_status_Widowed" : 0,
-
-  "session_type_Individual" : 1,
-
-  "previously_tested_hiv_negative_Missing" : 0,
-
-  "previously_tested_hiv_negative_TRUE" : 0,
-
-  "client_pregnant_X0" : 0,
-
-  "hts_setting_Others" : 0,
-
-  "hts_setting_Outreach" : 1,
-
-  "hts_setting_Other" : 0,
-
-  "tested_for_hiv_before_within_this_year_NotPreviouslyTested" : 1,
-
-  "tested_for_hiv_before_within_this_year_PreviouslyTestedNegative" : 0,
-
-  "tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveInHIVCare" : 0,
-
-  "tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveNotInHIVCare" : 0 }
+    "age": 34,
+    "sex_M": 0,
+    "sex_F": 1,
+    "first_time_visit_Y": 1,
+    "referred_from_Self": 1,
+    "referred_from_Other": 0,
+    "marital_status_Married": 1,
+    "marital_status_Divorced": 0,
+    "marital_status_Widowed": 0,
+    "session_type_Individual": 1,
+    "previously_tested_hiv_negative_Missing": 0,
+    "previously_tested_hiv_negative_TRUE": 0,
+    "client_pregnant_X0": 0,
+    "hts_setting_Others": 0,
+    "hts_setting_Outreach": 1,
+    "hts_setting_Other": 0,
+    "tested_for_hiv_before_within_this_year_NotPreviouslyTested": 1,
+    "tested_for_hiv_before_within_this_year_PreviouslyTestedNegative": 0,
+    "tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveInHIVCare": 0,
+    "tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveNotInHIVCare": 0
+  }
 }
