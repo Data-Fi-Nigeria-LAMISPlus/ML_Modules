@@ -47,9 +47,6 @@ public class MlController {
             //ObjectNode modelConfigs = MLUtils.getModelConfig(requestBody);
             ObjectMapper objectMapper = new ObjectMapper();
             String dtoAsString = objectMapper.writeValueAsString(mlRequestDTO);
-
-            System.out.println("Incoming " + dtoAsString);
-
             String facilityMflCode = modelConfigs1.getFacilityId();
             String debug = modelConfigs1.getDebug();
             boolean isDebugMode = debug.equals("true");
@@ -75,7 +72,6 @@ public class MlController {
                     encounterDate);
 
             ScoringResult scoringResult = modelService.score(modelId, facilityMflCode, encounterDate, inputFields, isDebugMode);
-            System.out.println("results " + scoringResult);
             return scoringResult;
         }
         catch (Exception e) {
