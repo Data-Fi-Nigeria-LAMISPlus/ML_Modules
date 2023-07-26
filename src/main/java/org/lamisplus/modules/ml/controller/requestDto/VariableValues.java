@@ -25,7 +25,7 @@ public class VariableValues {
     int sessionTypeIndividual;
     @JsonProperty("previously_tested_hiv_negative_Missing")
     int previouslyTestedHivNegativeMissing;
-    @JsonProperty("previously_tested_hiv_negative_TRUE")
+    @JsonProperty("previously_tested_hiv_negative_TRUE.")
     int previouslyTestedHivNegativeTRUE;
     @JsonProperty("client_pregnant_X0")
     int clientPregnantX0;

@@ -1,6 +1,7 @@
 package org.lamisplus.modules.ml.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
@@ -38,13 +39,17 @@ public class MlController {
     @ResponseBody
     public Object processModel(@Valid  @RequestBody  MlRequestDTO mlRequestDTO) {
         ModelService modelService = new ModelService();
-        String requestBody = null;
         try {
             ModelConfigs modelConfigs1 = mlRequestDTO.getModelConfigs();
 //            System.out.println("incoming" + request.getReader());
 //            requestBody = MLUtils.fetchRequestBody(request.getReader());
 //            System.out.println("body " + request.getReader());
             //ObjectNode modelConfigs = MLUtils.getModelConfig(requestBody);
+            ObjectMapper objectMapper = new ObjectMapper();
+            String dtoAsString = objectMapper.writeValueAsString(mlRequestDTO);
+
+            System.out.println("Incoming " + dtoAsString);
+
             String facilityMflCode = modelConfigs1.getFacilityId();
             String debug = modelConfigs1.getDebug();
             boolean isDebugMode = debug.equals("true");
@@ -59,20 +64,22 @@ public class MlController {
                 return new ResponseEntity<Object>("The service requires model, date, and facility information",
                         new HttpHeaders(), HttpStatus.BAD_REQUEST);
             }
-            JSONObject profile = MLUtils.getHTSFacilityProfile("SiteCode", facilityMflCode, MLUtils.getFacilityCutOffs());
+            JSONObject profile = MLUtils.getHTSFacilityProfile("Facility.Datim.ID", facilityMflCode, MLUtils.getFacilityCutOffs());
 
             if (profile == null) {
                 return new ResponseEntity<Object>(
                         "The facility provided currently doesn't have an HTS cut-off profile. Provide an appropriate facility",
                         new HttpHeaders(), HttpStatus.BAD_REQUEST);
             }
-            ModelInputFields inputFields = MLUtils.extractHTSCaseFindingVariablesFromRequestBody(requestBody, facilityMflCode,
+            ModelInputFields inputFields = MLUtils.extractHTSCaseFindingVariablesFromRequestBody(dtoAsString, facilityMflCode,
                     encounterDate);
 
             ScoringResult scoringResult = modelService.score(modelId, facilityMflCode, encounterDate, inputFields, isDebugMode);
+            System.out.println("results " + scoringResult);
             return scoringResult;
         }
         catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<Object>("Could not process the request", new HttpHeaders(),
                     HttpStatus.UNPROCESSABLE_ENTITY);
         }
