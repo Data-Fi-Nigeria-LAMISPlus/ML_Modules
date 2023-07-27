@@ -1,6 +1,7 @@
 package org.lamisplus.modules.ml.controller;
 
 
+import com.google.common.base.Stopwatch;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lamisplus.modules.ml.requestDto.HtsMlRequestDTO;
@@ -23,6 +24,9 @@ private final  ModelService modelService;
     @RequestMapping(method = RequestMethod.POST, value = "/evaluate")
     @ResponseBody
     public Object processModel(@Valid  @RequestBody HtsMlRequestDTO htsMlRequestDTO) {
-        return modelService.getHtsEvaluationScoreAndPrediction(htsMlRequestDTO);
+        Stopwatch stopwatch = Stopwatch.createStarted();
+        Object prediction = modelService.getHtsEvaluationScoreAndPrediction(htsMlRequestDTO);
+        LOG.info("Total time taken to generate a evaluate the model: {}", stopwatch.elapsed().toMinutes() + " minutes");
+        return prediction;
     }
 }
