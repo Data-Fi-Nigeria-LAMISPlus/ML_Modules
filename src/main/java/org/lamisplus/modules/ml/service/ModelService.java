@@ -133,14 +133,9 @@ public class ModelService {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			ModelConfigs modelConfigs1 = mlRequestDTO.getModelConfigs();
-//            System.out.println("incoming" + request.getReader());
-//            requestBody = MLUtils.fetchRequestBody(request.getReader());
-//            System.out.println("body " + request.getReader());
-			//ObjectNode modelConfigs = MLUtils.getModelConfig(requestBody);
 			String facilityMflCode = modelConfigs1.getFacilityId();
 			String debug = modelConfigs1.getDebug();
 			boolean isDebugMode = debug.equals("true");
-			//String requestBody =  mapper.writeValueAsString(mlRequestDTO);
 			if (facilityMflCode != null && StringUtils.isBlank(facilityMflCode)) {
 				// TODO: this should reflect how facilities are identified in LAMISPlus
 				facilityMflCode = MLUtils.getDefaultMflCode();
@@ -192,6 +187,7 @@ public class ModelService {
 					HttpStatus.UNPROCESSABLE_ENTITY);
 		}
 	}
+
 
 	private String calculateHash(String payload) {
 		try {
