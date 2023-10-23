@@ -5,46 +5,65 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class VariableValues {
     @JsonProperty("age")
     int age;
-    @JsonProperty("sex_M")
-    int sexM;
-    @JsonProperty("sex_F")
-    int sexF;
-    @JsonProperty("first_time_visit_Y")
-    int firstTimeVisitY;
-    @JsonProperty("referred_from_Self")
-    int referredFromSelf;
-    @JsonProperty("referred_from_Other")
-    int referredFromOther;
-    @JsonProperty("marital_status_Married")
-    int maritalStatusMarried;
-    @JsonProperty("marital_status_Divorced")
-    int maritalStatusDivorced;
-    @JsonProperty("marital_status_Widowed")
-    int maritalStatusWidowed;
-    @JsonProperty("session_type_Individual")
-    int sessionTypeIndividual;
-    @JsonProperty("previously_tested_hiv_negative_Missing")
-    int previouslyTestedHivNegativeMissing;
-    @JsonProperty("previously_tested_hiv_negative_TRUE.")
-    int previouslyTestedHivNegativeTRUE;
-    @JsonProperty("client_pregnant_X0")
-    int clientPregnantX0;
-    @JsonProperty("hts_setting_Others")
-    int htsSettingOthers;
-    @JsonProperty("hts_setting_Outreach")
+    @JsonProperty("gender_female")
+    int gender_female;
+    @JsonProperty("gender_male")
+    int gender_male;
+    @JsonProperty("first_time_visit")
+    int first_time_visit;
+    @JsonProperty("target_group_CHILDREN_OF_KP")
+    int target_group_CHILDREN_OF_KP;
+    @JsonProperty("target_group_FSW")
+    int target_group_FSW;
+    @JsonProperty("target_group_General_pop")
+    int target_group_General_pop;
+    @JsonProperty("target_group_MSM")
+    int target_group_MSM;
+    @JsonProperty("target_group_PWID")
+    int target_group_PWID;
+    @JsonProperty("referred_from_43")
+    int referred_from_43;
+    @JsonProperty("referred_from_50")
+    int referred_from_50;
+    @JsonProperty("referred_from_OTHERS")
+    int referred_from_OTHERS;
+    @JsonProperty("marital_status_other")
+    int marital_status_other;
+    @JsonProperty("marital_status_single")
 
-    int htsSettingOutreach;
-    @JsonProperty("hts_setting_Other")
+    int marital_status_single;
+    @JsonProperty("testing_setting_CT")
 
-    int htsSettingOther;
-    @JsonProperty("tested_for_hiv_before_within_this_year_NotPreviouslyTested")
-    int testedForHivBeforeWithinThisYearNotPreviouslyTested;
-    @JsonProperty("tested_for_hiv_before_within_this_year_PreviouslyTestedNegative")
+    int testing_setting_CT;
+    @JsonProperty("testing_setting_OTHERS")
+    int testing_setting_OTHERS;
+    @JsonProperty("testing_setting_OUTREACH")
 
-    int testedForHivBeforeWithinThisYearPreviouslyTestedNegative;
-    @JsonProperty("tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveInHIVCare")
-    int testedForHivBeforeWithinThisYearPreviouslyTestedPositiveInHIVCare;
-    @JsonProperty("tested_for_hiv_before_within_this_year_PreviouslyTestedPositiveNotInHIVCare")
-    int testedForHivBeforeWithinThisYearPreviouslyTestedPositiveNotInHIVCare;
-
+    int testing_setting_OUTREACH;
+    @JsonProperty("testing_setting_SNT")
+    int testing_setting_SNT;
+    @JsonProperty("testing_setting_STANDALONE_HTS")
+    int testing_setting_STANDALONE_HTS;
+    @JsonProperty("testing_setting_STI")
+    int testing_setting_STI;
+    @JsonProperty("stiInLast3Months")
+    int stiInLast3Months;
+    @JsonProperty("index_client")
+    int index_client;
+    @JsonProperty("previously_tested")
+    int previously_tested;
+    @JsonProperty("everHadSexualIntercourse")
+    int everHadSexualIntercourse;
+    @JsonProperty("bloodTransfusionInLast3Months")
+    int bloodTransfusionInLast3Months;
+    @JsonProperty("moreThan1SexPartnerDuringLast3Months")
+    int moreThan1SexPartnerDuringLast3Months;
+    @JsonProperty("unprotectedSexWithCasualPartnerInLast3Months")
+    int unprotectedSexWithCasualPartnerInLast3Months;
+    @JsonProperty("unprotectedSexWithRegularPartnerInLast3Months")
+    int unprotectedSexWithRegularPartnerInLast3Months;
+    @JsonProperty("tb_symptoms")
+    int tb_symptoms;
+    @JsonProperty("sti_symptoms")
+    int sti_symptoms;
 }
