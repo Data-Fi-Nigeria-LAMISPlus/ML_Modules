@@ -35,7 +35,9 @@ public class ModelService {
 			// Building a model evaluator from a PMML file
 			Evaluator evaluator = new LoadingModelEvaluatorBuilder().load(stream).build();
 			evaluator.verify();
-			return new ScoringResult(score(evaluator, inputFields, debug));
+			System.out.println("scores " + evaluator + " " + inputFields);
+			ScoringResult scoringResult = new ScoringResult(score(evaluator, inputFields, debug));
+			return scoringResult;
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception during preparation of input parameters or scoring of values for HTS model. "
