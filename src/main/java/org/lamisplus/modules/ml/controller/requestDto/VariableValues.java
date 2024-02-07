@@ -3,14 +3,15 @@ package org.lamisplus.modules.ml.controller.requestDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VariableValues {
-    @JsonProperty("age")
-    int age;
+
     @JsonProperty("gender_female")
     int gender_female;
     @JsonProperty("gender_male")
     int gender_male;
-    @JsonProperty("first_time_visit")
-    int first_time_visit;
+    @JsonProperty("marital_status_other")
+    int marital_status_other;
+    @JsonProperty("marital_status_single")
+    int marital_status_single;
     @JsonProperty("target_group_CHILDREN_OF_KP")
     int target_group_CHILDREN_OF_KP;
     @JsonProperty("target_group_FSW")
@@ -27,13 +28,7 @@ public class VariableValues {
     int referred_from_50;
     @JsonProperty("referred_from_OTHERS")
     int referred_from_OTHERS;
-    @JsonProperty("marital_status_other")
-    int marital_status_other;
-    @JsonProperty("marital_status_single")
-
-    int marital_status_single;
     @JsonProperty("testing_setting_CT")
-
     int testing_setting_CT;
     @JsonProperty("testing_setting_OTHERS")
     int testing_setting_OTHERS;
@@ -46,12 +41,18 @@ public class VariableValues {
     int testing_setting_STANDALONE_HTS;
     @JsonProperty("testing_setting_STI")
     int testing_setting_STI;
-    @JsonProperty("stiInLast3Months")
-    int stiInLast3Months;
+    @JsonProperty("age")
+    int age;
+    @JsonProperty("first_time_visit")
+    int first_time_visit;
     @JsonProperty("index_client")
     int index_client;
     @JsonProperty("previously_tested")
     int previously_tested;
+    @JsonProperty("clientPregnant")
+    int clientPregnant;
+    @JsonProperty("stiInLast3Months")
+    int stiInLast3Months;
     @JsonProperty("everHadSexualIntercourse")
     int everHadSexualIntercourse;
     @JsonProperty("bloodTransfusionInLast3Months")
@@ -62,8 +63,8 @@ public class VariableValues {
     int unprotectedSexWithCasualPartnerInLast3Months;
     @JsonProperty("unprotectedSexWithRegularPartnerInLast3Months")
     int unprotectedSexWithRegularPartnerInLast3Months;
-    @JsonProperty("tb_symptoms")
-    int tb_symptoms;
-    @JsonProperty("sti_symptoms")
-    int sti_symptoms;
+//    @JsonProperty("tb_symptoms")
+//    int tb_symptoms;
+//    @JsonProperty("sti_symptoms")
+//    int sti_symptoms;
 }
