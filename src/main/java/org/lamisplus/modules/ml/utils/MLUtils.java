@@ -109,15 +109,15 @@ public class MLUtils {
 			modelParams.put(keyId, keyValue);
 		}
 		
-		prepareEncounterModelParams(encounterDateString, modelParams);
+		//prepareEncounterModelParams(encounterDateString, modelParams);
 		// add facility cut off
 		
 		JSONObject profile = getHTSFacilityProfile("Facility.Datim.ID", facilityMflCode, getFacilityCutOffs());
 		
-		for (int i = 0; i < FACILITY_PROFILE_VARIABLES.length; i++) {
-			modelParams.put(FACILITY_PROFILE_VARIABLES[i], profile.get(FACILITY_PROFILE_VARIABLES[i]));
-		}
-		
+//		for (int i = 0; i < FACILITY_PROFILE_VARIABLES.length; i++) {
+//			modelParams.put(FACILITY_PROFILE_VARIABLES[i], profile.get(FACILITY_PROFILE_VARIABLES[i]));
+//		}
+//
 		ModelInputFields inputFields = new ModelInputFields();
 		inputFields.setFields(modelParams);
 		return inputFields;
@@ -137,7 +137,6 @@ public class MLUtils {
 				Map<String, Object> addedDayOfWeekVariables = setDayOfWeekVariables(dayOfWeek, modelParams);
 				Map<String, Object> addedMonthVariables = setMonthVariables(month, addedDayOfWeekVariables);
 				return addedMonthVariables;
-				
 			}
 			catch (Exception e) {
 				e.printStackTrace();

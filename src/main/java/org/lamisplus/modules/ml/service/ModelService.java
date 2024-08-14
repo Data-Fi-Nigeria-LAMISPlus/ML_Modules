@@ -36,8 +36,7 @@ public class ModelService {
 			Evaluator evaluator = new LoadingModelEvaluatorBuilder().load(stream).build();
 			evaluator.verify();
 			System.out.println("scores " + evaluator + " " + inputFields);
-			ScoringResult scoringResult = new ScoringResult(score(evaluator, inputFields, debug));
-			return scoringResult;
+			return new ScoringResult(score(evaluator, inputFields, debug));
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Exception during preparation of input parameters or scoring of values for HTS model. "
